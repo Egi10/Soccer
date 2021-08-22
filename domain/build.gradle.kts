@@ -26,11 +26,5 @@ android {
 
 dependencies {
 
-    implementation(Android.coreKtx)
-    implementation(Android.appCompat)
-    implementation(Android.material)
-    implementation(Android.constraintLayout)
-    testImplementation(Testing.junit)
-    androidTestImplementation(Testing.extJunit)
-    androidTestImplementation(Testing.espressoCore)
+
 }

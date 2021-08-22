@@ -1,6 +1,8 @@
 plugins {
     id("com.android.application")
     id("kotlin-android")
+    id("kotlin-kapt")
+    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -36,11 +38,26 @@ android {
 
 dependencies {
 
-    implementation(Android.coreKtx)
-    implementation(Android.appCompat)
-    implementation(Android.material)
-    implementation(Android.constraintLayout)
-    testImplementation(Testing.junit)
-    androidTestImplementation(Testing.extJunit)
-    androidTestImplementation(Testing.espressoCore)
+    implementation(Dependencies.Libraries.AndroidX.coreKtx)
+    implementation(Dependencies.Libraries.AndroidX.appCompat)
+    implementation(Dependencies.Libraries.AndroidX.material)
+    implementation(Dependencies.Libraries.AndroidX.constraintLayout)
+    testImplementation(Dependencies.Libraries.Testing.junit)
+    androidTestImplementation(Dependencies.Libraries.Testing.extJunit)
+    androidTestImplementation(Dependencies.Libraries.Testing.espressoCore)
+    // Coroutine
+    implementation(Dependencies.Libraries.Coroutines.core)
+    implementation(Dependencies.Libraries.Coroutines.android)
+    // Hilt
+    implementation(Dependencies.Libraries.Hilt.android)
+    kapt(Dependencies.Libraries.Hilt.compiler)
+    // Retrofit
+    implementation(Dependencies.Libraries.Retrofit.retrofit)
+    // Module
+    implementation(project(Modules.data))
+    implementation(project(Modules.domain))
+}
+
+kapt {
+    correctErrorTypes = true
 }
