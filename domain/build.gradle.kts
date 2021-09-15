@@ -1,6 +1,10 @@
+import extensions.coroutine
+import extensions.hilt
+
 plugins {
     id("com.android.library")
-    id("kotlin-android")
+    kotlin("android")
+    kotlin("kapt")
 }
 
 android {
@@ -25,6 +29,6 @@ android {
 }
 
 dependencies {
-
-
+    coroutine()
+    hilt()
 }

@@ -13,7 +13,7 @@ import javax.inject.Singleton
 abstract class RemoteDataSourceModule {
     @Binds
     @Singleton
-    abstract fun bindRemoteDataSource(
+    abstract fun bindsRemoteDataSource(
         remoteDataSourceImpl: RemoteDataSourceImpl
     ): RemoteDataSource
 }

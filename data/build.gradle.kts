@@ -1,8 +1,12 @@
+import extensions.coroutine
+import extensions.hilt
+import extensions.retrofit
+
 plugins {
     id("com.android.library")
-    id("kotlin-android")
-    id("kotlin-kapt")
     id("dagger.hilt.android.plugin")
+    kotlin("android")
+    kotlin("kapt")
 }
 
 android {
@@ -27,18 +31,9 @@ android {
 }
 
 dependencies {
-    // Coroutine
-    implementation(Dependencies.Libraries.Coroutines.core)
-    implementation(Dependencies.Libraries.Coroutines.android)
-    testImplementation(Dependencies.Libraries.Coroutines.test)
-    // Hilt
-    implementation(Dependencies.Libraries.Hilt.android)
-    kapt(Dependencies.Libraries.Hilt.compiler)
-    testImplementation(Dependencies.Libraries.Hilt.testing)
-    kaptTest(Dependencies.Libraries.Hilt.compiler)
-    // Retrofit
-    implementation(Dependencies.Libraries.Retrofit.retrofit)
-    implementation(Dependencies.Libraries.Retrofit.converterMoshi)
+    coroutine()
+    hilt()
+    retrofit()
     // Module Domain
     implementation(project(Modules.domain))
 }
