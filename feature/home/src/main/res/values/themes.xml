@@ -1,0 +1,11 @@
+<resources>
+
+    <style name="Theme.Soccer.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.Soccer.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.Soccer.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+</resources>

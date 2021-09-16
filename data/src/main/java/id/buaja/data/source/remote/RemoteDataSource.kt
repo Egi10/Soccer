@@ -7,7 +7,7 @@ import id.buaja.data.source.remote.response.LookUpLeagueResponse
 import kotlinx.coroutines.flow.Flow
 
 interface RemoteDataSource {
-    suspend fun getAllLeagues(): Flow<ApiResult<List<LeaguesItem>>>
-    suspend fun getDetailLeagues(id: String): Flow<ApiResult<LookUpLeagueResponse>>
+    suspend fun getAllLeagues(): Flow<List<LeaguesItem>>
+    suspend fun getDetailLeagues(id: String): Flow<LookUpLeagueResponse>
     suspend fun getAllTeamByIdLeagues(id: String): Flow<ApiResult<LookAllTeamsResponse>>
 }

@@ -19,6 +19,7 @@ object Dependencies {
             const val material = "com.google.android.material:material:${Version.material}"
             const val constraintLayout =
                 "androidx.constraintlayout:constraintlayout:${Version.AndroidX.constraintLayout}"
+            const val lifecycleRuntimeKtx = "androidx.lifecycle:lifecycle-runtime-ktx:${Version.AndroidX.lifecycleRuntimeKtx}"
         }
 
         object Retrofit {
@@ -38,6 +39,15 @@ object Dependencies {
             const val android = "com.google.dagger:hilt-android:${Version.hilt}"
             const val compiler = "com.google.dagger:hilt-compiler:${Version.hilt}"
             const val testing = "com.google.dagger:hilt-android-testing:${Version.hilt}"
+        }
+
+        object Compose {
+            const val composeUi = "androidx.compose.ui:ui:${Version.Compose.compose}"
+            const val material = "androidx.compose.material:material:${Version.Compose.compose}"
+            const val uiToolingPreview = "androidx.compose.ui:ui-tooling-preview:${Version.Compose.compose}"
+            const val activityCompose = "androidx.activity:activity-compose:${Version.Compose.activity}"
+            const val uiTestJunit4 = "androidx.compose.ui:ui-test-junit4:${Version.Compose.compose}"
+            const val uiTooling = "androidx.compose.ui:ui-tooling:${Version.Compose.compose}"
         }
     }
 }

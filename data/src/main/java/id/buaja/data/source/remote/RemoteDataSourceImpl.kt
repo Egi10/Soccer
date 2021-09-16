@@ -9,24 +9,26 @@ import id.buaja.data.source.remote.response.LookUpLeagueResponse
 import id.buaja.data.utils.safeApiCall
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
 import javax.inject.Inject
 
 class RemoteDataSourceImpl @Inject constructor(
     private val apiService: ApiService,
     @IoDispatcher private val ioDispatcher: CoroutineDispatcher
 ) : RemoteDataSource {
-    override suspend fun getAllLeagues(): Flow<ApiResult<List<LeaguesItem>>> {
-        return safeApiCall(ioDispatcher) {
+    override suspend fun getAllLeagues(): Flow<List<LeaguesItem>> {
+        return flow<List<LeaguesItem>> {
             apiService.getAllLeagues().leaguesDetail!!.filter {
                 it.strLeague == "Soccer"
             }
-        }
+        }.flowOn(ioDispatcher)
     }
 
-    override suspend fun getDetailLeagues(id: String): Flow<ApiResult<LookUpLeagueResponse>> {
-        return safeApiCall(ioDispatcher) {
+    override suspend fun getDetailLeagues(id: String): Flow<LookUpLeagueResponse> {
+        return flow<LookUpLeagueResponse> {
             apiService.getDetailLeagues(id)
-        }
+        }.flowOn(ioDispatcher)
     }
 
     override suspend fun getAllTeamByIdLeagues(id: String): Flow<ApiResult<LookAllTeamsResponse>> {

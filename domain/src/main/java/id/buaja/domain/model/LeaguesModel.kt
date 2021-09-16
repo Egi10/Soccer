@@ -1,5 +1,7 @@
 package id.buaja.domain.model
 
 data class LeaguesModel(
-    val strName: String
+    val idLeague: String,
+    val strLeague: String,
+    val strBadge: String
 )

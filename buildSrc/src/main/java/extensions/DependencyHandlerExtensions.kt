@@ -20,6 +20,15 @@ fun DependencyHandler.retrofit() {
     implementation(Dependencies.Libraries.Retrofit.converterMoshi)
 }
 
+fun DependencyHandler.compose() {
+    implementation(Dependencies.Libraries.Compose.composeUi)
+    implementation(Dependencies.Libraries.Compose.material)
+    implementation(Dependencies.Libraries.Compose.uiToolingPreview)
+    implementation(Dependencies.Libraries.Compose.activityCompose)
+    implementation(Dependencies.Libraries.Compose.uiTestJunit4)
+    implementation(Dependencies.Libraries.Compose.uiTooling)
+}
+
 fun DependencyHandler.implementation(dependencyNotation: String) {
     add("implementation", dependencyNotation)
 }

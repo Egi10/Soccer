@@ -4,16 +4,16 @@ import id.buaja.data.source.remote.response.LeaguesItem
 import id.buaja.domain.model.LeaguesModel
 
 object DataMapper {
-    fun mapResponseToModel(list: List<LeaguesItem>): List<LeaguesModel> {
+    fun mapResponseToModel(leagues: LeaguesItem, strBadge: String): List<LeaguesModel> {
         val newList: MutableList<LeaguesModel> = mutableListOf()
 
-        list.map {
-            newList.add(
-                LeaguesModel(
-                    strName = it.strLeague ?: ""
-                )
+        newList.add(
+            LeaguesModel(
+                idLeague = leagues.idLeague ?: "",
+                strLeague = leagues.strLeague ?: "",
+                strBadge = strBadge
             )
-        }
+        )
 
         return newList
     }
