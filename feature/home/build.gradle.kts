@@ -4,6 +4,7 @@ import extensions.hilt
 
 plugins {
     id("com.android.library")
+    id("dagger.hilt.android.plugin")
     kotlin("android")
     kotlin("kapt")
 }
@@ -29,7 +30,6 @@ android {
     }
     kotlinOptions {
         jvmTarget = "1.8"
-        useIR = true
     }
     buildFeatures {
         compose = true
@@ -55,9 +55,15 @@ dependencies {
     androidTestImplementation(Dependencies.Libraries.Testing.extJunit)
     androidTestImplementation(Dependencies.Libraries.Testing.espressoCore)
 
+    implementation(Dependencies.Libraries.coil)
+
     compose()
     hilt()
     coroutine()
 
     implementation(project(Modules.domain))
+}
+
+kapt {
+    correctErrorTypes = true
 }

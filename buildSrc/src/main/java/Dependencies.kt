@@ -6,6 +6,8 @@ object Dependencies {
     }
 
     object Libraries {
+        const val coil = "io.coil-kt:coil-compose:${Version.coil}"
+
         object Testing {
             const val junit = "junit:junit:${Version.Testing.junit}"
             const val extJunit = "androidx.test.ext:junit:${Version.Testing.extJunit}"
@@ -19,12 +21,14 @@ object Dependencies {
             const val material = "com.google.android.material:material:${Version.material}"
             const val constraintLayout =
                 "androidx.constraintlayout:constraintlayout:${Version.AndroidX.constraintLayout}"
-            const val lifecycleRuntimeKtx = "androidx.lifecycle:lifecycle-runtime-ktx:${Version.AndroidX.lifecycleRuntimeKtx}"
+            const val lifecycleRuntimeKtx =
+                "androidx.lifecycle:lifecycle-runtime-ktx:${Version.AndroidX.lifecycleRuntimeKtx}"
         }
 
         object Retrofit {
             const val retrofit = "com.squareup.retrofit2:retrofit:${Version.retrofit}"
             const val converterMoshi = "com.squareup.retrofit2:converter-moshi:${Version.retrofit}"
+            const val converterGson = "com.squareup.retrofit2:converter-gson:${Version.retrofit}"
         }
 
         object Coroutines {
@@ -44,8 +48,10 @@ object Dependencies {
         object Compose {
             const val composeUi = "androidx.compose.ui:ui:${Version.Compose.compose}"
             const val material = "androidx.compose.material:material:${Version.Compose.compose}"
-            const val uiToolingPreview = "androidx.compose.ui:ui-tooling-preview:${Version.Compose.compose}"
-            const val activityCompose = "androidx.activity:activity-compose:${Version.Compose.activity}"
+            const val uiToolingPreview =
+                "androidx.compose.ui:ui-tooling-preview:${Version.Compose.compose}"
+            const val activityCompose =
+                "androidx.activity:activity-compose:${Version.Compose.activity}"
             const val uiTestJunit4 = "androidx.compose.ui:ui-test-junit4:${Version.Compose.compose}"
             const val uiTooling = "androidx.compose.ui:ui-tooling:${Version.Compose.compose}"
         }

@@ -4,9 +4,9 @@
 
     <application>
         <activity
-            android:name=".MainActivity"
+            android:name=".HomeActivity"
             android:exported="true"
-            android:label="@string/title_activity_main"
+            android:label="@string/title_activity_home"
             android:theme="@style/Theme.Soccer.NoActionBar" />
     </application>
 

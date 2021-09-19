@@ -18,6 +18,7 @@ fun DependencyHandler.hilt() {
 fun DependencyHandler.retrofit() {
     implementation(Dependencies.Libraries.Retrofit.retrofit)
     implementation(Dependencies.Libraries.Retrofit.converterMoshi)
+    implementation(Dependencies.Libraries.Retrofit.converterGson)
 }
 
 fun DependencyHandler.compose() {

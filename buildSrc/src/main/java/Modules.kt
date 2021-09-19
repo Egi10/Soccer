@@ -4,6 +4,6 @@ object Modules {
     const val domain = ":domain"
 
     object Feature {
-
+        const val home = ":feature:home"
     }
 }

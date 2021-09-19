@@ -30,6 +30,10 @@ android {
     }
 }
 
+kapt {
+    correctErrorTypes = true
+}
+
 dependencies {
     coroutine()
     hilt()

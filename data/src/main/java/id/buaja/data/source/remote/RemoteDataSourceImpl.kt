@@ -18,16 +18,22 @@ class RemoteDataSourceImpl @Inject constructor(
     @IoDispatcher private val ioDispatcher: CoroutineDispatcher
 ) : RemoteDataSource {
     override suspend fun getAllLeagues(): Flow<List<LeaguesItem>> {
-        return flow<List<LeaguesItem>> {
-            apiService.getAllLeagues().leaguesDetail!!.filter {
-                it.strLeague == "Soccer"
+        return flow {
+            val result = apiService.getAllLeagues().leagues?.filter {
+                it.strLeagueAlternate == "Premier League" && it.strLeague == "English Premier League" ||
+                        it.strLeagueAlternate == "Bundesliga, Fußball-Bundesliga" ||
+                        it.strLeagueAlternate == "Serie A" ||
+                        it.strLeagueAlternate == "Ligue 1 Uber Eats" ||
+                        it.strLeagueAlternate == "La Liga Santander" ||
+                        it.strLeagueAlternate == "Liga 1 Indonesia, BRI Liga 1"
             }
+            result?.let { emit(it) }
         }.flowOn(ioDispatcher)
     }
 
     override suspend fun getDetailLeagues(id: String): Flow<LookUpLeagueResponse> {
-        return flow<LookUpLeagueResponse> {
-            apiService.getDetailLeagues(id)
+        return flow {
+            emit(apiService.getDetailLeagues(id))
         }.flowOn(ioDispatcher)
     }
 

@@ -22,10 +22,10 @@ class SoccerRepositoryImp @Inject constructor(
                     val result: MutableList<LeaguesModel> = mutableListOf()
                     it.map { league ->
                         remoteDataSource.getDetailLeagues(league.idLeague.toString())
-                            .map { detail ->
+                            .collect { detail ->
                                 val resultMap = DataMapper.mapResponseToModel(
                                     leagues = league,
-                                    strBadge = detail.leaguesDetail?.get(0)?.strBadge ?: ""
+                                    strBadge = detail.leagues?.get(0)?.strBadge ?: ""
                                 )
                                 result.addAll(resultMap)
                             }
@@ -34,7 +34,10 @@ class SoccerRepositoryImp @Inject constructor(
                         emit(result)
                     }
                 }
-                .map {
+                .catch { throwable ->
+                    send(ResultState.Error(throwable))
+                }
+                .collect {
                     send(ResultState.Success(it))
                 }
         }

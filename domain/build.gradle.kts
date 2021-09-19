@@ -3,6 +3,7 @@ import extensions.hilt
 
 plugins {
     id("com.android.library")
+    id("dagger.hilt.android.plugin")
     kotlin("android")
     kotlin("kapt")
 }
@@ -26,9 +27,18 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    packagingOptions {
+        resources {
+            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+        }
+    }
 }
 
 dependencies {
     coroutine()
     hilt()
+}
+
+kapt {
+    correctErrorTypes = true
 }

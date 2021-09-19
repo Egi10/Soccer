@@ -1,24 +1,24 @@
 package id.buaja.data.source.remote.response
 
-import com.squareup.moshi.Json
+import com.google.gson.annotations.SerializedName
 
 data class AllLeaguesResponse(
 
-	@Json(name="leagues")
-	val leaguesDetail: List<LeaguesItem>? = null
+	@field:SerializedName("leagues")
+	val leagues: List<LeaguesItem>? = null
 )
 
 data class LeaguesItem(
 
-	@Json(name="strLeagueAlternate")
+	@field:SerializedName("strLeagueAlternate")
 	val strLeagueAlternate: String? = null,
 
-	@Json(name="strLeague")
+	@field:SerializedName("strLeague")
 	val strLeague: String? = null,
 
-	@Json(name="strSport")
+	@field:SerializedName("strSport")
 	val strSport: String? = null,
 
-	@Json(name="idLeague")
+	@field:SerializedName("idLeague")
 	val idLeague: String? = null
 )

@@ -7,6 +7,7 @@ import dagger.hilt.components.SingletonComponent
 import id.buaja.data.source.remote.network.ApiService
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.converter.moshi.MoshiConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
@@ -29,6 +30,7 @@ class NetworkModule {
         Retrofit.Builder()
             .baseUrl("https://www.thesportsdb.com/api/v1/json/1/")
             .addConverterFactory(MoshiConverterFactory.create())
+            .addConverterFactory(GsonConverterFactory.create())
             .client(httpClient)
             .build()
 

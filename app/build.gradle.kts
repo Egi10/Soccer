@@ -1,3 +1,7 @@
+import extensions.compose
+import extensions.coroutine
+import extensions.hilt
+
 plugins {
     id("com.android.application")
     id("kotlin-android")
@@ -34,6 +38,18 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildFeatures {
+        compose = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = Version.Compose.compose
+        kotlinCompilerVersion = Version.kotlin
+    }
+    packagingOptions {
+        resources {
+            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+        }
+    }
 }
 
 dependencies {
@@ -45,17 +61,16 @@ dependencies {
     testImplementation(Dependencies.Libraries.Testing.junit)
     androidTestImplementation(Dependencies.Libraries.Testing.extJunit)
     androidTestImplementation(Dependencies.Libraries.Testing.espressoCore)
-    // Coroutine
-    implementation(Dependencies.Libraries.Coroutines.core)
-    implementation(Dependencies.Libraries.Coroutines.android)
-    // Hilt
-    implementation(Dependencies.Libraries.Hilt.android)
-    kapt(Dependencies.Libraries.Hilt.compiler)
+    compose()
+    hilt()
+    coroutine()
     // Retrofit
     implementation(Dependencies.Libraries.Retrofit.retrofit)
     // Module
     implementation(project(Modules.data))
     implementation(project(Modules.domain))
+    // Feature
+    implementation(project(Modules.Feature.home))
 }
 
 kapt {

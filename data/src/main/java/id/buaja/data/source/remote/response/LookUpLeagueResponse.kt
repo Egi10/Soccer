@@ -1,150 +1,150 @@
 package id.buaja.data.source.remote.response
 
-import com.squareup.moshi.Json
+import com.google.gson.annotations.SerializedName
 
 data class LookUpLeagueResponse(
 
-	@Json(name="leagues")
-	val leaguesDetail: List<LeaguesItemDetail>? = null
+	@field:SerializedName("leagues")
+	val leagues: List<LeaguesItemDetails>? = null
 )
 
-data class LeaguesItemDetail(
+data class LeaguesItemDetails(
 
-	@Json(name="strDescriptionES")
+	@field:SerializedName("strDescriptionES")
 	val strDescriptionES: String? = null,
 
-	@Json(name="dateFirstEvent")
+	@field:SerializedName("dateFirstEvent")
 	val dateFirstEvent: String? = null,
 
-	@Json(name="intFormedYear")
+	@field:SerializedName("intFormedYear")
 	val intFormedYear: String? = null,
 
-	@Json(name="strBanner")
+	@field:SerializedName("strBanner")
 	val strBanner: String? = null,
 
-	@Json(name="strSport")
+	@field:SerializedName("strSport")
 	val strSport: String? = null,
 
-	@Json(name="strDescriptionIT")
+	@field:SerializedName("strDescriptionIT")
 	val strDescriptionIT: String? = null,
 
-	@Json(name="strDescriptionCN")
+	@field:SerializedName("strDescriptionCN")
 	val strDescriptionCN: String? = null,
 
-	@Json(name="strDescriptionEN")
+	@field:SerializedName("strDescriptionEN")
 	val strDescriptionEN: String? = null,
 
-	@Json(name="strWebsite")
+	@field:SerializedName("strWebsite")
 	val strWebsite: String? = null,
 
-	@Json(name="strYoutube")
+	@field:SerializedName("strYoutube")
 	val strYoutube: String? = null,
 
-	@Json(name="strDescriptionIL")
+	@field:SerializedName("strDescriptionIL")
 	val strDescriptionIL: String? = null,
 
-	@Json(name="idCup")
+	@field:SerializedName("idCup")
 	val idCup: String? = null,
 
-	@Json(name="strComplete")
+	@field:SerializedName("strComplete")
 	val strComplete: String? = null,
 
-	@Json(name="idAPIfootball")
+	@field:SerializedName("idAPIfootball")
 	val idAPIfootball: String? = null,
 
-	@Json(name="strLocked")
+	@field:SerializedName("strLocked")
 	val strLocked: String? = null,
 
-	@Json(name="idLeague")
+	@field:SerializedName("idLeague")
 	val idLeague: String? = null,
 
-	@Json(name="idSoccerXML")
+	@field:SerializedName("idSoccerXML")
 	val idSoccerXML: Any? = null,
 
-	@Json(name="strTrophy")
+	@field:SerializedName("strTrophy")
 	val strTrophy: String? = null,
 
-	@Json(name="strBadge")
+	@field:SerializedName("strBadge")
 	val strBadge: String? = null,
 
-	@Json(name="strTwitter")
+	@field:SerializedName("strTwitter")
 	val strTwitter: String? = null,
 
-	@Json(name="strDescriptionHU")
+	@field:SerializedName("strDescriptionHU")
 	val strDescriptionHU: String? = null,
 
-	@Json(name="strGender")
+	@field:SerializedName("strGender")
 	val strGender: String? = null,
 
-	@Json(name="strLeagueAlternate")
+	@field:SerializedName("strLeagueAlternate")
 	val strLeagueAlternate: String? = null,
 
-	@Json(name="strDescriptionSE")
+	@field:SerializedName("strDescriptionSE")
 	val strDescriptionSE: String? = null,
 
-	@Json(name="strNaming")
+	@field:SerializedName("strNaming")
 	val strNaming: String? = null,
 
-	@Json(name="strDivision")
+	@field:SerializedName("strDivision")
 	val strDivision: String? = null,
 
-	@Json(name="strDescriptionJP")
+	@field:SerializedName("strDescriptionJP")
 	val strDescriptionJP: String? = null,
 
-	@Json(name="strFanart1")
+	@field:SerializedName("strFanart1")
 	val strFanart1: String? = null,
 
-	@Json(name="strDescriptionFR")
+	@field:SerializedName("strDescriptionFR")
 	val strDescriptionFR: String? = null,
 
-	@Json(name="strFanart2")
+	@field:SerializedName("strFanart2")
 	val strFanart2: String? = null,
 
-	@Json(name="strTvRights")
+	@field:SerializedName("strTvRights")
 	val strTvRights: String? = null,
 
-	@Json(name="strFanart3")
+	@field:SerializedName("strFanart3")
 	val strFanart3: String? = null,
 
-	@Json(name="strFacebook")
+	@field:SerializedName("strFacebook")
 	val strFacebook: String? = null,
 
-	@Json(name="strFanart4")
+	@field:SerializedName("strFanart4")
 	val strFanart4: String? = null,
 
-	@Json(name="strCountry")
+	@field:SerializedName("strCountry")
 	val strCountry: String? = null,
 
-	@Json(name="strDescriptionNL")
+	@field:SerializedName("strDescriptionNL")
 	val strDescriptionNL: String? = null,
 
-	@Json(name="strRSS")
+	@field:SerializedName("strRSS")
 	val strRSS: String? = null,
 
-	@Json(name="strDescriptionRU")
+	@field:SerializedName("strDescriptionRU")
 	val strDescriptionRU: String? = null,
 
-	@Json(name="strDescriptionPT")
+	@field:SerializedName("strDescriptionPT")
 	val strDescriptionPT: String? = null,
 
-	@Json(name="strLogo")
+	@field:SerializedName("strLogo")
 	val strLogo: String? = null,
 
-	@Json(name="strDescriptionDE")
+	@field:SerializedName("strDescriptionDE")
 	val strDescriptionDE: String? = null,
 
-	@Json(name="strDescriptionNO")
+	@field:SerializedName("strDescriptionNO")
 	val strDescriptionNO: String? = null,
 
-	@Json(name="strLeague")
+	@field:SerializedName("strLeague")
 	val strLeague: String? = null,
 
-	@Json(name="strCurrentSeason")
+	@field:SerializedName("strCurrentSeason")
 	val strCurrentSeason: String? = null,
 
-	@Json(name="strPoster")
+	@field:SerializedName("strPoster")
 	val strPoster: String? = null,
 
-	@Json(name="strDescriptionPL")
+	@field:SerializedName("strDescriptionPL")
 	val strDescriptionPL: String? = null
 )
