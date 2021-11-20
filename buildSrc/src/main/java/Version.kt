@@ -7,6 +7,7 @@ object Version {
     const val coroutines = "1.5.2"
     const val hilt = "2.38.1"
     const val coil = "1.3.2"
+    const val navigation = "2.3.5"
 
     object AndroidX {
         const val ktx = "1.6.0"

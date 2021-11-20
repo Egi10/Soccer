@@ -2,8 +2,11 @@ package id.buaja.home.ui.home
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.*
+import androidx.compose.foundation.lazy.GridCells
+import androidx.compose.foundation.lazy.LazyVerticalGrid
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -25,7 +28,8 @@ import id.buaja.domain.model.LeaguesModel
 @ExperimentalCoilApi
 @Composable
 fun HomeScreen(
-    viewModel: HomeViewModel
+    viewModel: HomeViewModel,
+    onClick: (LeaguesModel) -> Unit
 ) {
     val uiState by viewModel.uiState.collectAsState()
 
@@ -58,7 +62,10 @@ fun HomeScreen(
                     cells = GridCells.Fixed(3)
                 ) {
                     items(data) { league ->
-                        LeagueRow(leagues = league)
+                        LeagueRow(
+                            leagues = league,
+                            onClick = onClick
+                        )
                     }
                 }
             }
@@ -76,12 +83,16 @@ fun HomeScreen(
 @ExperimentalCoilApi
 @Composable
 fun LeagueRow(
-    leagues: LeaguesModel
+    leagues: LeaguesModel,
+    onClick: (LeaguesModel) -> Unit
 ) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(top = 20.dp, start = 5.dp, end = 5.dp),
+            .padding(top = 20.dp, start = 5.dp, end = 5.dp)
+            .clickable {
+                onClick.invoke(leagues)
+            },
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Image(

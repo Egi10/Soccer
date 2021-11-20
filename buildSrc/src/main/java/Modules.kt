@@ -5,5 +5,6 @@ object Modules {
 
     object Feature {
         const val home = ":feature:home"
+        const val team = ":feature:team"
     }
 }

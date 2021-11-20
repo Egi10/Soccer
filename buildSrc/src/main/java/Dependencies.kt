@@ -55,5 +55,11 @@ object Dependencies {
             const val uiTestJunit4 = "androidx.compose.ui:ui-test-junit4:${Version.Compose.compose}"
             const val uiTooling = "androidx.compose.ui:ui-tooling:${Version.Compose.compose}"
         }
+
+        object Navigation {
+            const val fragment = "androidx.navigation:navigation-fragment-ktx:${Version.navigation}"
+            const val ui = "androidx.navigation:navigation-ui-ktx:${Version.navigation}"
+            const val testing = "androidx.navigation:navigation-testing:${Version.navigation}"
+        }
     }
 }

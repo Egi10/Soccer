@@ -7,11 +7,11 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 
 fun <T> safeApiCall(dispatcher: CoroutineDispatcher, apiCall: suspend () -> T): Flow<ApiResult<T>> {
-    return flow<ApiResult<T>> {
+    return flow {
         try {
-            ApiResult.Success(apiCall.invoke())
+            emit(ApiResult.Success(apiCall.invoke()))
         } catch (throwable: Throwable) {
-            ApiResult.Error(throwable)
+            emit(ApiResult.Error(throwable))
         }
     }.flowOn(dispatcher)
 }

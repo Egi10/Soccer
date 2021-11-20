@@ -1,36 +1,31 @@
 import extensions.compose
 import extensions.coroutine
 import extensions.hilt
+import extensions.navigation
 
 plugins {
-    id("com.android.application")
-    id("kotlin-android")
-    id("kotlin-kapt")
+    id("com.android.library")
     id("dagger.hilt.android.plugin")
+    kotlin("android")
+    kotlin("kapt")
+    id("kotlin-android")
 }
 
 android {
     compileSdk = Config.compileSdk
 
     defaultConfig {
-        applicationId = Config.applicationId
         minSdk = Config.minSdk
         targetSdk = Config.targetSdk
         versionCode = Config.versionCode
         versionName = Config.versionName
 
         testInstrumentationRunner = Config.testInstrumentationRunner
+        vectorDrawables {
+            useSupportLibrary = true
+        }
     }
 
-    buildTypes {
-        getByName("release") {
-            isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
-        }
-        getByName("debug") {
-            isMinifyEnabled = false
-        }
-    }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
@@ -57,21 +52,20 @@ dependencies {
     implementation(Dependencies.Libraries.AndroidX.coreKtx)
     implementation(Dependencies.Libraries.AndroidX.appCompat)
     implementation(Dependencies.Libraries.AndroidX.material)
+    implementation(Dependencies.Libraries.AndroidX.lifecycleRuntimeKtx)
     implementation(Dependencies.Libraries.AndroidX.constraintLayout)
     testImplementation(Dependencies.Libraries.Testing.junit)
     androidTestImplementation(Dependencies.Libraries.Testing.extJunit)
     androidTestImplementation(Dependencies.Libraries.Testing.espressoCore)
+
+    implementation(Dependencies.Libraries.coil)
+
     compose()
     hilt()
     coroutine()
-    // Retrofit
-    implementation(Dependencies.Libraries.Retrofit.retrofit)
-    // Module
-    implementation(project(Modules.data))
+    navigation()
+
     implementation(project(Modules.domain))
-    // Feature
-    implementation(project(Modules.Feature.home))
-    implementation(project(Modules.Feature.team))
 }
 
 kapt {

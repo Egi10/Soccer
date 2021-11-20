@@ -1,9 +1,12 @@
 package id.buaja.data.repository
 
+import android.util.Log
 import id.buaja.data.source.remote.RemoteDataSource
+import id.buaja.data.source.remote.network.ApiResult
 import id.buaja.data.utils.DataMapper
 import id.buaja.domain.ResultState
 import id.buaja.domain.model.LeaguesModel
+import id.buaja.domain.model.TeamModel
 import id.buaja.domain.repository.SoccerRepository
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
@@ -39,6 +42,30 @@ class SoccerRepositoryImp @Inject constructor(
                 }
                 .collect {
                     send(ResultState.Success(it))
+                }
+        }
+    }
+
+    override suspend fun getAllTeamByIdLeagues(id: String): Flow<ResultState<List<TeamModel>>> {
+        Log.d("error", "ID $id")
+        return flow {
+            remoteDataSource.getAllTeamByIdLeagues(id)
+                .collect {
+                    when(it) {
+                        is ApiResult.Success -> {
+                            val mapping = DataMapper.mapResponseTeamToModel(it.data)
+                            emit(ResultState.Success(mapping))
+
+                            Log.d("error", "${it.data}")
+                        }
+
+                        is ApiResult.Error -> {
+                            emit(ResultState.Error(it.throwable))
+
+                            Log.d("error", "${it.throwable}")
+                        }
+                    }
+
                 }
         }
     }

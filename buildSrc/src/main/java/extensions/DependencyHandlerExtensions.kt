@@ -30,6 +30,12 @@ fun DependencyHandler.compose() {
     implementation(Dependencies.Libraries.Compose.uiTooling)
 }
 
+fun DependencyHandler.navigation() {
+    implementation(Dependencies.Libraries.Navigation.fragment)
+    implementation(Dependencies.Libraries.Navigation.ui)
+    implementation(Dependencies.Libraries.Navigation.testing)
+}
+
 fun DependencyHandler.implementation(dependencyNotation: String) {
     add("implementation", dependencyNotation)
 }

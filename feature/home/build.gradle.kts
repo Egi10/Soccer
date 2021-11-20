@@ -62,6 +62,7 @@ dependencies {
     coroutine()
 
     implementation(project(Modules.domain))
+    implementation(project(Modules.Feature.team))
 }
 
 kapt {

@@ -1,5 +1,6 @@
 package id.buaja.home
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
@@ -12,6 +13,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import id.buaja.home.ui.home.HomeScreen
 import id.buaja.home.ui.home.HomeViewModel
 import id.buaja.home.ui.theme.SoccerTheme
+import id.buaja.team.TeamActivity
 
 @AndroidEntryPoint
 class HomeActivity : AppCompatActivity() {
@@ -25,7 +27,11 @@ class HomeActivity : AppCompatActivity() {
             SoccerTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
-                    HomeScreen(viewModel = viewModel)
+                    HomeScreen(viewModel = viewModel) {
+                        val intent = Intent(this, TeamActivity::class.java)
+                        intent.putExtra(TeamActivity.ID_LEAGUE, it.idLeague)
+                        startActivity(intent)
+                    }
                 }
             }
         }
